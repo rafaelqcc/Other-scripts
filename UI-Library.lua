@@ -1,6 +1,6 @@
 -- made by redz9999
 -- hub version: v5
--- edited by @Yuna-ux
+-- edited by @rafaelqcc
 
 local MarketplaceService = game:GetService("MarketplaceService")
 local UserInputService = game:GetService("UserInputService")
