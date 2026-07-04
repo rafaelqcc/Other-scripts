@@ -1,4 +1,5 @@
 -- not made by me
+-- Credits to whoever made this.
 local json = { _version = "0.1.2" }
 
 local encode
