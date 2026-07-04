@@ -9,7 +9,9 @@
   Inspiration:
   // Sukma Hubs CSGO Script
   // Warzone
- 
+
+  Edit: Removed Loadstrings
+
   Note: the original code for this script was god awful so
   if there's bugs pls let me know so i can fix them (ps the original is from 2024 i think so you can imagine how bad it was before i recently edited it)
   the code may be unoptimized at some parts and uses a lot of if statements
