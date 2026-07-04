@@ -678,7 +678,7 @@ end
 end
 
 if OptionsPermanentDeath and replicatesignal then
-replicatesignal(ConnectDiedSignalBackend)
+--replicatesignal(ConnectDiedSignalBackend)
 
 taskwait(Players.RespawnTime + 0.1)
 
@@ -827,7 +827,7 @@ Table.Frames = Frames
 
 if Frames > 15 and OptionsPermanentDeath and OptionsRefit and replicatesignal then
 Refitting = false
-replicatesignal(ConnectDiedSignalBackend)
+--replicatesignal(ConnectDiedSignalBackend)
 end
 end
 end
@@ -1178,7 +1178,7 @@ DisableRigCollisions = true,
 HatDrop = false,
 HideCharacter = Vector3.new(0, -30, 0),
 ParentCharacter = true,
-PermanentDeath = true,
+PermanentDeath = false,
 Refit = true,
 RigSize = 1,
 RigTransparency = 1,
