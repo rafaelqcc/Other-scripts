@@ -980,7 +980,7 @@ local SetProps, SetChildren, InsertTheme, Create do
 			if type(decode) == "table" then
 				if rawget(decode, "UISize") then redzlib.Save["UISize"] = decode["UISize"] end
 				if rawget(decode, "TabSize") then redzlib.Save["TabSize"] = decode["TabSize"] end
-				if rawget(decode, "Theme") and VerifyTheme(decode["Theme"]) then redzlib.Save["Theme"] = decode["Theme"] end
+				if rawget(decode, "Theme") and VerifyTheme(decode["Theme"]) then Theme = redzlib.Themes[decode["Theme"]] redzlib.Save["Theme"] = decode["Theme"] end
 			end
 		end
 	end
