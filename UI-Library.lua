@@ -927,6 +927,16 @@ local UIScale = ViewportSize.Y / 450
 local Settings = redzlib.Settings
 local Flags = redzlib.Flags
 
+-- The function must be defined beforehand, otherwise a bug will occur.
+local function VerifyTheme(Theme)
+    if Theme == "" then return end
+	for name,_ in pairs(redzlib.Themes) do
+		if name == Theme then
+			return true
+		end
+	end
+end
+
 local SetProps, SetChildren, InsertTheme, Create do
 	InsertTheme = function(Instance, Type)
 		table.insert(redzlib.Instances, {
@@ -1218,15 +1228,6 @@ local function MakeDrag(Frame)
 	end)
 
 	return Frame
-end
-
-local function VerifyTheme(Theme)
-    if Theme == "" then return end
-	for name,_ in pairs(redzlib.Themes) do
-		if name == Theme then
-			return true
-		end
-	end
 end
 
 local function SaveJson(FileName, save)
