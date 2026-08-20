@@ -29,7 +29,8 @@ local OrionLib = {
 local Icons = {}
 
 local Success, Response = pcall(function()
-	Icons = HttpService:JSONDecode(game:HttpGetAsync("https://raw.githubusercontent.com/evoincorp/lucideblox/master/src/modules/util/icons.json")).icons
+	-- Error 404: https://raw.githubusercontent.com/evoincorp/lucideblox/master/src/modules/util/icons.json
+	Icons = HttpService:JSONDecode(game:HttpGetAsync("https://raw.githubusercontent.com/rafaelqcc/lucideblox/master/src/modules/util/icons.json")).icons
 end)
 
 if not Success then
