@@ -265,6 +265,17 @@ The above boolean value "true" is whether or not the current buttons will be del
 Dropdown:Set("dropdown option")
 ```
 
+### Featcher icons example (lucideblox)
+Replace "home" with the desired icon in the JSON file.
+
+```lua
+local TabHome = Window:MakeTab({
+    Name = "Home",
+    Icon = "home",        -- Home icon
+    PremiumOnly = false
+})
+```
+
 # Finishing your script (REQUIRED)
 The below function needs to be added at the end of your code.
 ```lua
