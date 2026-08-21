@@ -70,7 +70,7 @@ local currentTheme = redzlib:GetTheme()
 
 ---
 
-## 🪟 Window Management
+## Window Management
 
 To initialize the graphical interface, use the `MakeWindow` method.
 
