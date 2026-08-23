@@ -921,6 +921,8 @@ local redzlib = {
 	end)()
 }
 
+local everyClipboard = setclipboard or toclipboard or set_clipboard or (Clipboard and Clipboard.set)
+
 local ViewportSize = workspace.CurrentCamera.ViewportSize
 local UIScale = ViewportSize.Y / 450
 
@@ -2893,7 +2895,7 @@ function redzlib:MakeWindow(Configs)
 			
 			local ClickDelay
 			JoinButton.Activated:Connect(function()
-				setclipboard(Invite)
+				everyClipboard(Invite)
 				if ClickDelay then return end
 				
 				ClickDelay = true
