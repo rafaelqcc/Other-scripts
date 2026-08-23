@@ -314,6 +314,11 @@ local Window = redzlib:MakeWindow({
     SaveFolder = "RedzHubConfig.json"
 })
 
+Window:AddMinimizeButton({
+    Button = { Image = "rbxassetid://10734966248", BackgroundTransparency = 1 },
+    Corner = { CornerRadius = UDim.new(0, 8) },
+})
+
 -- Create Tabs
 local MainTab = Window:MakeTab({ Name = "Main", Icon = "home" })
 local SettingsTab = Window:MakeTab({ Name = "Settings", Icon = "settings" })
