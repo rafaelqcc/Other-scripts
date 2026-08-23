@@ -309,7 +309,7 @@ local redzlib = redzlib -- or loadstring(game:HttpGet(...))()
 
 -- Create Main Window
 local Window = redzlib:MakeWindow({
-    Title = "Redz Hub V5",
+    Title = "Redz Hub Example",
     SubTitle = "by redz9999 & @rafaelqcc",
     SaveFolder = "RedzHubConfig.json"
 })
@@ -336,6 +336,27 @@ MainTab:AddToggle({
     end
 })
 
+MainTab:AddButton({
+    Name = "Dialog",
+    Callback = function()
+        local Dialog = Window:Dialog({
+            Title = "Question",
+            Text = "You Like this UI?",
+            Options = {
+               {"yes", function()
+                    print("ok")
+               end},
+               {"maybe", function()
+                   print("maybe")
+               end},
+               {"no", function()
+                   print("no")
+               end}
+            }
+         })
+    end)
+})  
+
 MainTab:AddSlider({
     Name = "Walk Speed",
     Min = 16,
@@ -360,5 +381,5 @@ SettingsTab:AddDropdown({
     end
 })
 
-print("RedzLib V5 initialized successfully!")
+print("RedzLib initialized successfully!")
 ```
