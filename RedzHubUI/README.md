@@ -594,8 +594,7 @@ end)
 
 ```lua
 -- Load Library
-local redzlib = loadstring(game:HttpGet(
-    "https://raw.githubusercontent.com/rafaelqcc/Other-scripts/refs/heads/main/RedzHubUI/RedzHubUI.lua"
+local redzlib = loadstring(game:HttpGet(  "https://raw.githubusercontent.com/rafaelqcc/Other-scripts/refs/heads/main/RedzHubUI/RedzHubUI.lua"
 ))()
 
 -- Create Main Window
@@ -617,17 +616,16 @@ local Minimize = Window:AddMinimizeButton({
 
 -- Create Tabs
 local MainTab = Window:MakeTab({
-    Name = "Main",
+    Title = "Main",
     Icon = "home"
 })
 
 local SettingsTab = Window:MakeTab({
-    Name = "Settings",
+    Title = "Settings",
     Icon = "settings"
 })
 
 -- Main Tab Elements
-
 MainTab:AddParagraph({
     Title = "Welcome",
     Text = "Welcome to Redz Hub!"
