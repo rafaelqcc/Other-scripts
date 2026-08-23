@@ -42,7 +42,7 @@ A feature-rich, highly customizable User Interface (UI) library for Roblox scrip
 To load the library into your script, fetch the source code via `loadstring` or inject the `redzlib` table directly into your environment.
 
 ```lua
-local redzlib = loadstring(game:HttpGet("YOUR_SCRIPT_URL_HERE"))()
+local redzlib = loadstring(game:HttpGet("https://raw.githubusercontent.com/rafaelqcc/Other-scripts/refs/heads/main/RedzHubUI/RedzHubUI.lua"))()
 ```
 
 ---
