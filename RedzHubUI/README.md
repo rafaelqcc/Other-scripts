@@ -91,6 +91,35 @@ redzlib:SetScale(450)
 local scale = redzlib:GetScale()
 ```
 
+### `Window:AddMinimizeButton`
+Creates a floating, draggable button that toggles the window's minimized state when clicked.
+
+```lua
+local MinimizeBtn = Window:AddMinimizeButton({
+    Button = {
+        Image = "rbxassetid://1234567890", -- Button icon ID
+        Size = UDim2.fromOffset(40, 40)
+    },
+    Corner = {
+        CornerRadius = UDim.new(0, 8)
+    },
+    Stroke = {
+        Color = Color3.fromRGB(255, 255, 255),
+        Thickness = 1.5
+    }
+})
+```
+
+Parameters
+
+Accepts a Configs table with the following options:
+
+| Property | Type | Description |
+|---|---|---|
+| Button | table | Properties applied directly to the ImageButton (e.g., Image, Size, Position, ImageColor3). |
+| Corner | table (Optional) | Configuration for the button's UICorner element (e.g., CornerRadius). |
+| Stroke | table (Optional) | Configuration for the button's UIStroke element (e.g., Color, Thickness). |
+
 ---
 
 ## Creating Tabs
