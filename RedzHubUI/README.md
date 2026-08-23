@@ -77,7 +77,7 @@ To initialize the graphical interface, use the `MakeWindow` method.
 local Window = redzlib:MakeWindow({
     Title = "My Hub | Roblox",
     SubTitle = "by : redz9999 & @rafaelqcc",
-    SaveFolder = "MyHubConfig.json" -- File where flag states will be saved
+    SaveFolder = "MyHubConfig" -- Folder where flag states will be saved
 })
 ```
 
@@ -599,13 +599,13 @@ end)
 
 ```lua
 -- Load Library (Ensure you load the library source before executing)
-local redzlib = redzlib -- or loadstring(game:HttpGet(...))()
+local redzlib = loadstring(game:HttpGet("https://raw.githubusercontent.com/rafaelqcc/Other-scripts/refs/heads/main/RedzHubUI/RedzHubUI.lua"))()
 
 -- Create Main Window
 local Window = redzlib:MakeWindow({
     Title = "Redz Hub Example",
     SubTitle = "by redz9999 & @rafaelqcc",
-    SaveFolder = "RedzHubConfig.json"
+    SaveFolder = "RedzHubConfig"
 })
 
 Window:AddMinimizeButton({
@@ -619,6 +619,11 @@ local SettingsTab = Window:MakeTab({ Name = "Settings", Icon = "settings" })
 
 -- Main Tab Elements
 MainTab:AddLabel({ Name = "Welcome to Redz Hub!" })
+
+MainTab:AddParagraph({
+    "Welcome",
+    "This is an example paragraph."
+})
 
 MainTab:AddToggle({
     Name = "Infinite Jump",
