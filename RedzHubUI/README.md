@@ -335,6 +335,131 @@ Tab1:AddSection({
 })
 ```
 
+## `Tab:AddParagraph(Configs)`
+
+Creates a paragraph component inside the current tab, consisting of a title and a description. The returned object allows the paragraph to be modified, hidden, or destroyed after creation.
+
+### Parameters
+
+| Parameter | Type | Default | Description |
+|---|---|---|---|
+| `Configs` | table | `{}` | Configuration for the paragraph. Supports both array-style and named properties. |
+
+### `Configs` Properties
+
+| Property | Type | Default | Description |
+|---|---|---|---|
+| `[1]` / `Title` | string | `"Paragraph"` | The title displayed by the paragraph. |
+| `[2]` / `Text` | string | `""` | The description displayed below the title. |
+
+### Returns
+
+| Type | Description |
+|---|---|
+| `table` | Returns a `Paragraph` object containing methods for controlling and modifying the paragraph. |
+
+### `Paragraph:Visible(...)`
+
+Changes the visibility of the paragraph.
+
+The arguments are passed directly to the library's internal visibility function.
+
+### `Paragraph:Destroy()`
+
+Destroys the paragraph and removes it from the current tab.
+
+### `Paragraph:SetTitle(Val)`
+
+Changes the title of the paragraph.
+
+| Parameter | Type | Description |
+|---|---|---|
+| `Val` | any | New title value. It is processed through `GetStr()` before being applied. |
+
+### `Paragraph:SetDesc(Val)`
+
+Changes the description of the paragraph.
+
+| Parameter | Type | Description |
+|---|---|---|
+| `Val` | any | New description value. It is processed through `GetStr()` before being applied. |
+
+### `Paragraph:Set(Val1, Val2)`
+
+Updates the title and/or description.
+
+| Parameter | Type | Description |
+|---|---|---|
+| `Val1` | any | New title when `Val2` is provided; otherwise, new description. |
+| `Val2` | any | New description. Optional. |
+
+When both values are provided, `Val1` becomes the title and `Val2` becomes the description.
+
+When only `Val1` is provided, it becomes the description.
+
+### Example
+
+local Paragraph = Tab:AddParagraph({
+    Title = "Welcome",
+    Text = "This is an example paragraph."
+})
+
+### Array-style configuration
+
+The paragraph can also be created using positional properties:
+
+```lua
+local Paragraph = Tab:AddParagraph({
+    "Welcome",
+    "This is an example paragraph."
+})
+```
+
+### Updating the paragraph
+
+```lua
+Paragraph:SetTitle("New Title")
+```
+
+```lua
+Paragraph:SetDesc("New description")
+```
+
+### Updating both values
+
+```lua
+Paragraph:Set("New Title", "New description")
+```
+
+### Updating only the description
+
+Paragraph:Set("New description")
+
+### Hiding and showing
+
+```lua
+Paragraph:Visible(false)
+```
+
+```lua
+Paragraph:Visible(true)
+```
+### Destroying
+
+```lua
+Paragraph:Destroy()
+```
+
+### Methods
+
+| Method | Description |
+|---|---|
+| `Paragraph:Visible(...)` | Changes the visibility of the paragraph. |
+| `Paragraph:Destroy()` | Removes the paragraph. |
+| `Paragraph:SetTitle(Val)` | Changes the paragraph title. |
+| `Paragraph:SetDesc(Val)` | Changes the paragraph description. |
+| `Paragraph:Set(Val1, Val2)` | Changes the title and/or description. |
+
 ## `Tab:AddDiscordInvite(Configs)`
 
 Creates a Discord invite component inside the current tab. It displays a Discord invite code, logo, title, description, and a button that copies the invite to the clipboard.
