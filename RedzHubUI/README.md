@@ -18,7 +18,6 @@ A feature-rich, highly customizable User Interface (UI) library for Roblox scrip
    - [Sliders](#slider)
    - [Dropdowns](#dropdown)
    - [Inputs / TextBoxes](#input)
-   - [Keybinds](#keybind)
    - [Labels and Sections](#label--section)
 7. [Flag & Configuration Management](#-flag--configuration-management)
 8. [Icon System](#-icon-system)
@@ -320,19 +319,6 @@ Tab1:AddTextBox({
 })
 ```
 
-### Keybind
-Allows users to assign a keybind to trigger actions or toggle settings.
-
-```lua
-Tab1:AddDiscordKeybind({
-    Name = "Teleport Shortcut",
-    Default = Enum.KeyCode.E,
-    Flag = "TPKeybind",
-    Callback = function()
-        print("Keybind triggered!")
-    end
-})
-```
 
 ### Label & Section
 Visual components used to organize text and group settings.
@@ -349,6 +335,88 @@ Tab1:AddSection({
 })
 ```
 
+## `Tab:AddDiscordInvite(Configs)`
+
+Creates a Discord invite component inside the current tab. It displays a Discord invite code, logo, title, description, and a button that copies the invite to the clipboard.
+
+### Parameters
+
+| Parameter | Type | Description |
+|---|---|---|
+| `Configs` | table | Configuration for the Discord invite component. Supports both array-style and named properties. |
+
+### `Configs` Properties
+
+| Property | Type | Default | Description |
+|---|---|---|---|
+| `[1]` / `Name` / `Title` | string | `"Discord"` | The title displayed on the invite card. |
+| `Desc` / `Description` | string | `""` | Description displayed below the title. |
+| `[2]` / `Logo` | string | `""` | Image asset ID used as the Discord server logo. |
+| `[3]` / `Invite` | string | `""` | Discord invite URL or code copied when the Join button is activated. |
+
+### Returns
+
+| Type | Description |
+|---|---|
+| `table` | Returns a `DiscordInvite` object containing methods for controlling the component. |
+
+### `DiscordInvite:Destroy()`
+
+Destroys the Discord invite component and removes it from the tab.
+
+### `DiscordInvite:Visible(...)`
+
+Changes the visibility of the Discord invite component.
+
+The arguments are passed directly to the library's internal visibility function.
+
+### Behavior
+
+When the `Join` button is activated:
+
+1. The configured `Invite` value is copied to the clipboard.
+2. The button text changes to `"Copied to Clipboard"`.
+3. The button becomes temporarily disabled through a click delay.
+4. After 5 seconds, the button returns to its original `"Join"` state.
+
+### Example
+
+```
+local DiscordInvite = Tab:AddDiscordInvite({
+    Title = "My Discord Server",
+    Description = "Join our community!",
+    Logo = "rbxassetid://123456789",
+    Invite = "https://discord.gg/example"
+})
+```
+
+### Array-style configuration
+
+The same component can be configured using positional properties:
+
+```
+local DiscordInvite = Tab:AddDiscordInvite({
+    "My Discord Server",
+    "rbxassetid://123456789",
+    "https://discord.gg/example",
+    Desc = "Join our community!"
+})
+```
+
+### Methods
+
+| Method | Description |
+|---|---|
+| `DiscordInvite:Destroy()` | Removes the Discord invite component. |
+| `DiscordInvite:Visible(...)` | Changes the visibility of the component. |
+
+### Notes
+
+- The `Join` button uses clipboard function to copy the invite.
+- The button has a 5-second delay before it can be activated again.
+- The invite card automatically uses the current theme colors.
+- The logo is displayed as a rounded image with a stroke.
+  
 ---
 
 ## Flag & Configuration Management
