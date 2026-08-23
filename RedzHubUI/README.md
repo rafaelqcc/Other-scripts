@@ -381,7 +381,7 @@ When the `Join` button is activated:
 
 ### Example
 
-```
+```lua
 local DiscordInvite = Tab:AddDiscordInvite({
     Title = "My Discord Server",
     Description = "Join our community!",
@@ -394,7 +394,7 @@ local DiscordInvite = Tab:AddDiscordInvite({
 
 The same component can be configured using positional properties:
 
-```
+```lua
 local DiscordInvite = Tab:AddDiscordInvite({
     "My Discord Server",
     "rbxassetid://123456789",
