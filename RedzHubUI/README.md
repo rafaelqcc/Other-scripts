@@ -120,6 +120,107 @@ Accepts a Configs table with the following options:
 | Corner | table (Optional) | Configuration for the button's UICorner element (e.g., CornerRadius). |
 | Stroke | table (Optional) | Configuration for the button's UIStroke element (e.g., Color, Thickness). |
 
+## `Window:Dialog(Configs)`
+
+Creates a modal dialog window over the main window, with a title, message, and configurable action buttons.
+
+### Parameters
+
+| Parameter | Type | Description |
+|---|---|---|
+| `Configs` | table | Configuration for the dialog. Supports both array-style and named properties. |
+
+### `Configs` Properties
+
+| Property | Type | Default | Description |
+|---|---|---|---|
+| `[1]` / `Title` | string | `"Dialog"` | The title displayed at the top of the dialog. |
+| `[2]` / `Text` | string | `"This is a Dialog"` | The message displayed inside the dialog. |
+| `[3]` / `Options` | table | `{}` | List of buttons that will be added to the dialog. |
+
+### Returns
+
+| Type | Description |
+|---|---|
+| `table` | Returns a Dialog object containing the `Button` and `Close` methods. |
+
+### `Dialog:Button(Configs)`
+
+Adds an action button to the dialog.
+
+| Property | Type | Default | Description |
+|---|---|---|---|
+| `[1]` / `Name` / `Title` | string | `""` | Text displayed on the button. |
+| `[2]` / `Callback` | function | `function() end` | Function executed when the button is activated. |
+
+The dialog automatically closes when the button is activated, before executing the callback.
+
+### `Dialog:Close()`
+
+Closes the dialog with an animation and removes it from the main window.
+
+### Example
+
+```lua
+local Dialog = Window:Dialog({
+    Title = "Confirmation",
+    Text = "Are you sure you want to continue?",
+    Options = {
+        {
+            Name = "Yes",
+            Callback = function()
+                print("Confirmed")
+            end
+        },
+        {
+            Name = "No",
+            Callback = function()
+                print("Cancelled")
+            end
+        }
+    }
+})
+```
+
+### Array-style configuration
+
+The same dialog can also be created using positional properties:
+
+```lua
+local Dialog = Window:Dialog({
+    "Confirmation",
+    "Are you sure you want to continue?",
+    {
+        {
+            "Yes",
+            function()
+                print("Confirmed")
+            end
+        },
+        {
+            "No",
+            function()
+                print("Cancelled")
+            end
+        }
+    }
+})
+```
+
+### Methods
+
+| Method | Description |
+|---|---|
+| `Dialog:Button(Configs)` | Adds a button to the dialog. |
+| `Dialog:Close()` | Closes and destroys the dialog. |
+
+### Notes
+
+- Only one dialog can be open at a time.
+- If a dialog already exists, `Window:Dialog()` returns without creating another one.
+- If the window is minimized, it is automatically restored before opening the dialog.
+- Buttons are automatically resized based on the number of buttons in the dialog.
+
 ---
 
 ## Creating Tabs
