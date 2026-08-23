@@ -18,7 +18,7 @@ A feature-rich, highly customizable User Interface (UI) library for Roblox scrip
    - [Sliders](#slider)
    - [Dropdowns](#dropdown)
    - [Inputs / TextBoxes](#input)
-   - [Labels and Sections](#label--section)
+   - [Paragraphs and Sections](#paragraph--section)
 7. [Flag & Configuration Management](#-flag--configuration-management)
 8. [Icon System](#-icon-system)
 9. [Events and Connections](#-events-and-connections)
@@ -320,15 +320,10 @@ Tab1:AddTextBox({
 ```
 
 
-### Label & Section
+### Paragraph & Section
 Visual components used to organize text and group settings.
 
 ```lua
--- Add an informative label
-Tab1:AddLabel({
-    Name = "Important information about this tab"
-})
-
 -- Add a section header / divider
 Tab1:AddSection({
     Name = "Advanced Settings"
@@ -598,8 +593,10 @@ end)
 ## Full Script Example
 
 ```lua
--- Load Library (Ensure you load the library source before executing)
-local redzlib = loadstring(game:HttpGet("https://raw.githubusercontent.com/rafaelqcc/Other-scripts/refs/heads/main/RedzHubUI/RedzHubUI.lua"))()
+-- Load Library
+local redzlib = loadstring(game:HttpGet(
+    "https://raw.githubusercontent.com/rafaelqcc/Other-scripts/refs/heads/main/RedzHubUI/RedzHubUI.lua"
+))()
 
 -- Create Main Window
 local Window = redzlib:MakeWindow({
@@ -608,21 +605,37 @@ local Window = redzlib:MakeWindow({
     SaveFolder = "RedzHubConfig"
 })
 
-Window:AddMinimizeButton({
-    Button = { Image = "rbxassetid://10734966248", BackgroundTransparency = 1 },
-    Corner = { CornerRadius = UDim.new(0, 8) },
+local Minimize = Window:AddMinimizeButton({
+    Button = {
+        Image = "rbxassetid://10734966248",
+        BackgroundTransparency = 1
+    },
+    Corner = {
+        CornerRadius = UDim.new(0, 8)
+    }
 })
 
 -- Create Tabs
-local MainTab = Window:MakeTab({ Name = "Main", Icon = "home" })
-local SettingsTab = Window:MakeTab({ Name = "Settings", Icon = "settings" })
+local MainTab = Window:MakeTab({
+    Name = "Main",
+    Icon = "home"
+})
+
+local SettingsTab = Window:MakeTab({
+    Name = "Settings",
+    Icon = "settings"
+})
 
 -- Main Tab Elements
-MainTab:AddLabel({ Name = "Welcome to Redz Hub!" })
 
 MainTab:AddParagraph({
-    "Welcome",
-    "This is an example paragraph."
+    Title = "Welcome",
+    Text = "Welcome to Redz Hub!"
+})
+
+MainTab:AddParagraph({
+    Title = "Example",
+    Text = "This is an example paragraph."
 })
 
 MainTab:AddToggle({
@@ -630,6 +643,7 @@ MainTab:AddToggle({
     Description = "Allows continuous jump in mid-air",
     Default = false,
     Flag = "InfiniteJump",
+
     Callback = function(State)
         _G.InfJump = State
     end
@@ -637,24 +651,37 @@ MainTab:AddToggle({
 
 MainTab:AddButton({
     Name = "Dialog",
+
     Callback = function()
         local Dialog = Window:Dialog({
             Title = "Question",
             Text = "You Like this UI?",
+
             Options = {
-               {"yes", function()
-                    print("ok")
-               end},
-               {"maybe", function()
-                   print("maybe")
-               end},
-               {"no", function()
-                   print("no")
-               end}
+                {
+                    "yes",
+                    function()
+                        print("ok")
+                    end
+                },
+
+                {
+                    "maybe",
+                    function()
+                        print("maybe")
+                    end
+                },
+
+                {
+                    "no",
+                    function()
+                        print("no")
+                    end
+                }
             }
-         })
-    end)
-})  
+        })
+    end
+})
 
 MainTab:AddSlider({
     Name = "Walk Speed",
@@ -663,18 +690,34 @@ MainTab:AddSlider({
     Increase = 1,
     Default = 16,
     Flag = "WalkSpeed",
+
     Callback = function(Value)
-        if game.Players.LocalPlayer.Character then
-            game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = Value
+        local Character = game.Players.LocalPlayer.Character
+
+        if Character then
+            local Humanoid = Character:FindFirstChildOfClass("Humanoid")
+
+            if Humanoid then
+                Humanoid.WalkSpeed = Value
+            end
         end
     end
 })
 
 -- Settings Tab Elements
+
 SettingsTab:AddDropdown({
     Name = "UI Theme",
-    Options = {"Darker", "Dark", "Purple", "Green", "Orange"},
+    Options = {
+        "Darker",
+        "Dark",
+        "Purple",
+        "Green",
+        "Orange"
+    },
+
     Default = redzlib:GetTheme(),
+
     Callback = function(SelectedTheme)
         redzlib:SetTheme(SelectedTheme)
     end
