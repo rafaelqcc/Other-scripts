@@ -636,6 +636,13 @@ MainTab:AddParagraph({
     Text = "This is an example paragraph."
 })
 
+MainTab:AddDiscordInvite({
+    Title = "Test",
+    Description = "Join our Discord community!",
+    Logo = "rbxassetid://123456789",
+    Invite = "https://discord.gg/example"
+})
+
 MainTab:AddToggle({
     Name = "Infinite Jump",
     Description = "Allows continuous jump in mid-air",
