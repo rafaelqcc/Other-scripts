@@ -15,6 +15,8 @@
 --[vans-Black-White-Checkerboard-Umbrella hat tutorial https://youtu.be/yABXDhI7XvY]]
 
 -- -gh 6531967293,9350274205,3403874988,12103270510,10775031176
+-- i dont make this script
+
 game.Players.LocalPlayer.Character["VANS_Umbrella"].Handle.Mesh:Destroy()
 game.Players.LocalPlayer.Character["PlaneModel"].Handle.Mesh:Destroy()
 game.Players.LocalPlayer.Character["PogoStick"].Handle.Mesh:Destroy()
@@ -4822,7 +4824,7 @@ local Value1=MaybeOk(1,"29,30,31,10,12,29,30,31,0") warn(MaybeOk(1,"12,15,1,4,9,
 
 
 
-
+-- fake ok
 -----------------------------------------------------------------
 --		  ____________ 
 --		 /100101001011\    [-Deer Logger-]
