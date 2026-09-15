@@ -3,11 +3,11 @@ local redzlib = loadstring(game:HttpGet("https://raw.githubusercontent.com/rafae
 local Window = redzlib:MakeWindow({
   Title = "redz Hub : teste",
   SubTitle = "by redz9999",
-  SaveFolder = "testando | redz lib v5.lua"
+  SaveFolder = "testing | redz lib v5.lua"
 })
 
 Window:AddMinimizeButton({
-    Button = { Image = "rbxassetid://71014873973869", BackgroundTransparency = 0 },
+    Button = { Image = "rbxassetid://10734966248", BackgroundTransparency = 0 },
     Corner = { CornerRadius = UDim.new(35, 1) },
 })
 
@@ -31,19 +31,19 @@ local Paragraph = Tab1:AddParagraph({"Paragraph", "This is a Paragraph\nSecond L
     Text = "This is a Dialog",
     Options = {
       {"Confirm", function()
-  print("confirm")      
+          print("confirm")      
       end},
       {"Maybe", function()
-       print("maybe") 
+          print("maybe") 
       end},
       {"Cancel", function()
-        print("cancel")
+          print("cancel")
       end}
     }
   })
-  
-  Tab1:AddButton({"Print", function(Value)
-print("Hello World!")
+
+Tab1:AddButton({"Print", function(Value)
+    print("Hello World!")
 end})
 
 local Toggle1 = Tab1:AddToggle({
@@ -70,7 +70,7 @@ Tab1:AddSlider({
   Increase = 1,
   Default = 16,
   Callback = function(Value)
-  print("speed",Value)
+      print("speed",Value)
   end
 })
 
@@ -81,7 +81,7 @@ local Dropdown = Tab1:AddDropdown({
   Default = "two",
   Flag = "dropdown teste",
   Callback = function(Value)
-    print("dropdown")
+      print("dropdown")
   end
 })
 
@@ -90,6 +90,6 @@ Tab1:AddTextBox({
   Description = "1 Item on 1 Server", 
   PlaceholderText = "item only",
   Callback = function(Value)
-    print("Name item:", Value)
+      print("Name item:", Value)
   end
 })
