@@ -1,7 +1,7 @@
 local redzlib = loadstring(game:HttpGet("https://raw.githubusercontent.com/rafaelqcc/Other-scripts/refs/heads/main/RedzHubUI/RedzHubUI.lua"))()
 
 local Window = redzlib:MakeWindow({
-  Title = "redz Hub : teste",
+  Title = "redz Hub : test",
   SubTitle = "by redz9999",
   SaveFolder = "testing | redz lib v5.lua"
 })
@@ -79,7 +79,7 @@ local Dropdown = Tab1:AddDropdown({
   Description = "Select the <font color='rgb(88, 101, 242)'>Number</font>",
   Options = {"one", "two", "three"},
   Default = "two",
-  Flag = "dropdown teste",
+  Flag = "dropdown test",
   Callback = function(Value)
       print("dropdown")
   end
