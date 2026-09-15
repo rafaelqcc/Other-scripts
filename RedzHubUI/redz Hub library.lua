@@ -90,6 +90,6 @@ Tab1:AddTextBox({
   Description = "1 Item on 1 Server", 
   PlaceholderText = "item only",
   Callback = function(Value)
-    
+    print("Name item:", Value)
   end
 })
