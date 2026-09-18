@@ -1,3 +1,4 @@
+-- Modified version
 -- Copyright (c) 2018, Souche Inc.
 -- https://github.com/xiedacon/lua-pretty-json
 -- MIT License
