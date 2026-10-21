@@ -1,4 +1,5 @@
--- original by @uniquadev
+-- https://github.com/uniquadev/GuiToLuaConverter
+-- bundled by rafaelqcc
 --[[
                                  Apache License
                            Version 2.0, January 2004
